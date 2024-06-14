@@ -1,3 +1,5 @@
+
+
 package com.rays.pro4.controller;
 
 import java.io.IOException;
@@ -25,13 +27,12 @@ import com.rays.pro4.Util.ServletUtility;
  * @author uday dabi
  */
 @WebFilter(filterName = "FrontCtl", urlPatterns = { "/ctl/*", "/doc/*" })
-
 public class FrontControler implements Filter {
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 * @see javax.servl et.Filter#doFilter(javax.servlet.ServletRequest,
 	 * javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -55,7 +56,7 @@ public class FrontControler implements Filter {
 			ServletUtility.forward(ORSView.LOGIN_VIEW, request, response);
 			return;
 		} else {
-		chain.doFilter(req, resp);
+			chain.doFilter(req, resp);
 		}
 	}
 
@@ -65,7 +66,7 @@ public class FrontControler implements Filter {
 	 * 
 	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
-		
+
 	public void init(FilterConfig conf) throws ServletException {
 	}
 

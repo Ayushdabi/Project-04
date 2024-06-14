@@ -1,7 +1,12 @@
 package com.rays.pro4.Bean;
 
 import java.sql.Timestamp;
+
+
+
 import java.util.Date;
+
+import com.rays.pro4.Util.DataUtility;
 
 /**
  * User JavaBean encapsulates User attributes.
@@ -126,13 +131,18 @@ public class UserBean extends BaseBean {
 	}
 	public String getValue() {
 		// TODO Auto-generated method stub
-		 return firstName + " " + lastName;
+		 return  DataUtility.getString(firstName);
 	}
 
 	@Override
 	public String toString() {
 	
 		return "UserBean [password=" + password + ", dob=" +  dob+ "]";
+	}
+	@Override
+	public int compareTo(BaseBean o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 

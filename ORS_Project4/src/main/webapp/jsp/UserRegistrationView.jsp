@@ -172,7 +172,7 @@
 
 				<tr>
 					<th align="left">Confirm Password <span style="color: red">*</span>
-						:
+						
 					</th>
 					<td><input type="password" name="confirmPassword"
 						placeholder="Re-Enter password" size="25"

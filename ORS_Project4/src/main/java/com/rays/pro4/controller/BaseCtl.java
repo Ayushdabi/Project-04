@@ -1,4 +1,4 @@
- package com.rays.pro4.controller;
+package com.rays.pro4.controller;
 
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ import com.rays.pro4.Util.ServletUtility;
  * Base controller class of project. It contain (1) Generic operations (2)
  * Generic constants (3) Generic work flow
  *
- * @author  uday dabi
+ * @author uday dabi
  *
  */
 
@@ -127,9 +127,9 @@ public abstract class BaseCtl extends HttpServlet {
 		System.out.println("Bctl service");
 
 		// Load the preloaded data required to display at HTML form
-		preload(request); 
+		preload(request);
 
-		String op = DataUtility.getString(request.getParameter("operation")); 
+		String op = DataUtility.getString(request.getParameter("operation"));
 		System.out.println("Bctl servi op" + op);
 		// Check if operation is not DELETE, VIEW, CANCEL, and NULL then
 		// perform input data validation
@@ -143,7 +143,7 @@ public abstract class BaseCtl extends HttpServlet {
 			if (!validate(request)) {
 				System.out.println("Bctl validate ");
 				BaseBean bean = (BaseBean) populateBean(request);
-				//wapis se inserted data dikhe jo phle in put kiya tha 
+				// wapis se inserted data dikhe jo phle in put kiya tha
 				ServletUtility.setBean(bean, request);
 				ServletUtility.forward(getView(), request, response);
 				return;
@@ -159,7 +159,5 @@ public abstract class BaseCtl extends HttpServlet {
 	 * @return
 	 */
 	protected abstract String getView();
-	
-	
 
 }

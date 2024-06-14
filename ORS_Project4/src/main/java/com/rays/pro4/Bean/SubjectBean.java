@@ -48,6 +48,11 @@ public class SubjectBean extends BaseBean{
 		// TODO Auto-generated method stub
 		return subjectName;
 	}
+	@Override
+	public int compareTo(BaseBean o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 	

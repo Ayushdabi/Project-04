@@ -106,5 +106,10 @@ public class FacultyBean extends BaseBean{
 		// TODO Auto-generated method stub
 		return firstName + " " + lastName;
 	}
+	@Override
+	public int compareTo(BaseBean o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

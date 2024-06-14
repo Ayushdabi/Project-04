@@ -1,6 +1,7 @@
 package com.rays.pro4.Bean;
 
 import java.io.Serializable;
+
 import java.sql.Timestamp;
 
 
@@ -61,8 +62,6 @@ public abstract class BaseBean implements Serializable, DropdownListBean, Compar
 		this.modifiedDatetime = modifiedDatetime;
 	}
 
-	public int compareTo(BaseBean next) {
-		return getValue().compareTo(next.getValue());
-	}
+
 
 }

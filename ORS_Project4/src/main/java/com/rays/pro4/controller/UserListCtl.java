@@ -1,6 +1,10 @@
+
 package com.rays.pro4.controller;
 
 import java.io.IOException;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,13 +25,13 @@ import com.rays.pro4.Util.ServletUtility;
 
 //TODO: Auto-generated Javadoc
 /**
-* User List functionality Controller. Performs operation for list, search and
-* delete operations of User
-* 
-*  @author uday dabi
-*/
+ * User List functionality Controller. Performs operation for list, search and
+ * delete operations of User
+ * 
+ * @author uday dabi
+ */
 @WebServlet(name = "UserListCtl", urlPatterns = { "/ctl/UserListCtl" })
-public class UserListCtl extends BaseCtl{
+public class UserListCtl extends BaseCtl {
 
 	private static Logger log = Logger.getLogger(UserListCtl.class);
 
@@ -44,11 +48,14 @@ public class UserListCtl extends BaseCtl{
 		UserModel umodel = new UserModel();
 
 		try {
-			List rlist = rmodel.list(0,0);
-			List ulist = umodel.list(0,0);
+			List rlist = rmodel.list(0, 0);
+			// List login = umodel.list(0, 0);
+			List ulist = umodel.list(0, 0);
+			List flist = umodel.list(0, 0);
 
+			request.setAttribute("FirstName", flist);
 			request.setAttribute("RoleList", rlist);
-			request.setAttribute("LoginId", ulist);
+			request.setAttribute("dob", ulist);
 
 		} catch (ApplicationException e) {
 			e.printStackTrace();
@@ -60,17 +67,35 @@ public class UserListCtl extends BaseCtl{
 	 * 
 	 * @see in.co.rays.ors.controller.BaseCtl#populateBean(javax.servlet.http.
 	 * HttpServletRequest)
-	 */	
+	 */
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
 		UserBean bean = new UserBean();
 
 		bean.setFirstName(DataUtility.getString(request.getParameter("firstName")));
-
 		bean.setRoleId(DataUtility.getLong(request.getParameter("roleid")));
-		bean.setLogin(DataUtility.getString(request.getParameter("loginid")));
-		bean.setDob(DataUtility.getDate(request.getParameter("dob")));
+		bean.setLogin(DataUtility.getString(request.getParameter("loginId")));
 
+		System.out.println("login id >> " + request.getParameter("loginId"));
+
+		bean.setId(DataUtility.getLong(request.getParameter("dob")));
+
+		// SimpleDateFormat sdf = new SimpleDateFormat ("yyy-MM-dd");
+		// String date = request.getParameter("dob");
+
+		// try {
+		// if(date != null)
+
+		// bean.setDob(sdf.parse(date));
+
+		// } catch (ParseException e) {
+		// TODO: handle exception
+		// R}
+
+//		
+
+		// bean.setId(DataUtility.getLong(request.getParameter("dob")));
+//		 System.out.println("dob>== " + request.getParameter("dob"));
 
 		return bean;
 	}
@@ -85,7 +110,7 @@ public class UserListCtl extends BaseCtl{
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		log.debug("UserListCtl doGet Start");
+		System.out.println("in get method");
 		List list = null;
 		List nextList = null;
 
@@ -93,7 +118,6 @@ public class UserListCtl extends BaseCtl{
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
 
 		UserBean bean = (UserBean) populateBean(request);
-		String op = DataUtility.getString(request.getParameter("operation"));
 
 //	        get the selected checkbox ids array for delete list
 
@@ -115,7 +139,7 @@ public class UserListCtl extends BaseCtl{
 			ServletUtility.setList(list, request);
 			ServletUtility.setPageNo(pageNo, request);
 			ServletUtility.setPageSize(pageSize, request);
-			//ServletUtility.setBean(bean, request);
+			// ServletUtility.setBean(bean, request);
 			ServletUtility.forward(getView(), request, response);
 		} catch (ApplicationException e) {
 			log.error(e);
@@ -136,6 +160,7 @@ public class UserListCtl extends BaseCtl{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("Dopost Start");
 		log.debug("UserListCtl doPost Start");
 
 		List list;
@@ -147,18 +172,22 @@ public class UserListCtl extends BaseCtl{
 		pageSize = (pageSize == 0) ? DataUtility.getInt(PropertyReader.getValue("page.size")) : pageSize;
 
 		String op = DataUtility.getString(request.getParameter("operation"));
+		System.out.println("" + op);
 		UserBean bean = (UserBean) populateBean(request);
+		System.out.println("pppppp");
 		// get the selected checkbox ids array for delete list
 		String[] ids = request.getParameterValues("ids");
 		UserModel model = new UserModel();
-
+		System.out.println("operation" + op);
 		if (OP_SEARCH.equalsIgnoreCase(op)) {
 			pageNo = 1;
 		} else if (OP_NEXT.equalsIgnoreCase(op)) {
 			pageNo++;
 		} else if (OP_PREVIOUS.equalsIgnoreCase(op) && pageNo > 1) {
 			pageNo--;
+
 		} else if (OP_NEW.equalsIgnoreCase(op)) {
+			System.out.println("jjjjjjjjjj");
 			ServletUtility.redirect(ORSView.USER_CTL, request, response);
 			return;
 		} else if (OP_RESET.equalsIgnoreCase(op)) {

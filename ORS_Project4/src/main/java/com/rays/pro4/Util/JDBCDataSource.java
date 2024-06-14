@@ -1,6 +1,8 @@
 package com.rays.pro4.Util;
 
 import java.sql.Connection;
+
+
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -16,12 +18,12 @@ import com.rays.pro4.Exception.ApplicationException;
  * @author uday dabi
  *
  */
-public class JDBCDataSource {
+public final class JDBCDataSource {
 
 	 /**
      * JDBC Database connection pool ( DCP )
      *///
-	
+	 
 	
     private static JDBCDataSource datasource;
 
@@ -33,13 +35,13 @@ public class JDBCDataSource {
     /**
      * Create instance of Connection Pool
      *
-     * @return
+     * @return  
      */
     public static JDBCDataSource getInstance() {
         if (datasource == null) {
 
             ResourceBundle rb = ResourceBundle
-                    .getBundle("com.rays.proj4.resourcesB.System");
+                     .getBundle("com.rays.proj4.resourcesB.System");
 
             datasource = new JDBCDataSource();
             datasource.cpds = new ComboPooledDataSource();

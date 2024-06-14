@@ -24,7 +24,7 @@
 
 		<h2 align="Center">
 			<a href="<%=ORSView.GET_MARKSHEET_CTL%>">Click here to see your
-				Marksheet </a>
+				Marksheet</a>
 		</h2>
 
 		<%

@@ -39,8 +39,12 @@ private static Logger log = Logger.getLogger(CollegeListCtl.class);
     	CollegeModel cmodel=new CollegeModel();
     	try{
     		List clist=cmodel.list();
+    		//List plist=cmodel.list();
+    	
     		
     		request.setAttribute("CollegeList", clist);
+    	//	request.setAttribute("city", plist);
+    		
     	}
     	catch(ApplicationException e){
     		e.printStackTrace();
@@ -56,12 +60,12 @@ private static Logger log = Logger.getLogger(CollegeListCtl.class);
     protected BaseBean populateBean(HttpServletRequest request) {
         CollegeBean bean = new CollegeBean();
 
-       // bean.setName(DataUtility.getString(request.getParameter("name")));
-        bean.setCity(DataUtility.getString(request.getParameter("city")));
+      // bean.setName(DataUtility.getString(request.getParameter("name")));
+      bean.setCity(DataUtility.getString(request.getParameter("city")));
         bean.setPhoneNo(DataUtility.getString(request.getParameter("phoneno")));
 
         
-        bean.setId(DataUtility.getLong(request.getParameter("collegeid")));
+       bean.setId(DataUtility.getLong(request.getParameter("collegeid")));
        
 
         return bean;

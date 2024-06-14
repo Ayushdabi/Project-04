@@ -34,7 +34,7 @@ public class TimeTableModel {
 		int pk = 0;
 		try {
 			conn = JDBCDataSource.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement("SELECT MAX(ID) FROM ST_TIMETABLE");
+			PreparedStatement pstmt = conn.prepareStatement("SELECT MAX(ID) FROM st_timetable");
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				pk = rs.getInt(1);
@@ -405,7 +405,7 @@ public class TimeTableModel {
 
 	public TimeTableBean checkBycds(long CourseId, String Semester, Date ExamDate) throws ApplicationException {
 		StringBuffer sql = new StringBuffer(
-				"SELECT * FROM ST_TIMETABLE WHERE Course_Id=? AND semester=? AND Exam_Date=?");
+				"SELECT * FROM st_timetable WHERE Course_Id=? AND semester=? AND Exam_Date=?");
 
 		Connection conn = null;
 		TimeTableBean bean = null;

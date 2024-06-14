@@ -36,6 +36,11 @@ public class CourseBean extends BaseBean{
 	public String getValue() {
 		return name;
 	}
+	@Override
+	public int compareTo(BaseBean o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }

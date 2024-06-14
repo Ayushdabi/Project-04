@@ -23,7 +23,7 @@ public class HTMLUtility {
             HashMap<String, String> map) {
 
         StringBuffer sb = new StringBuffer(
-                "<select style='width: 213px;  height: 23px;' class='form-control' name='" + name + "'>");
+                "<select style='width: 203px;  height: 23px;' class='form-control' name='" + name + "'>");
 
         Set<String> keys = map.keySet();
         String val = null;
@@ -31,7 +31,7 @@ public class HTMLUtility {
         boolean select=true;
         if (select)
         {
-        	sb.append("<option style='width: 203px;  height: 30px;' selected value=''>--------------Select---------------------`</option>");
+        	sb.append("<option style='width: 203px;  height: 30px;' selected value=''>--------------Select---------------------</option>");
         }
 
         for (String key : keys) {
@@ -60,11 +60,11 @@ public class HTMLUtility {
 
         Collections.sort(list);       
         StringBuffer sb = new StringBuffer("<select style='width: 203px;  height: 23px;' class='form-control' name='" + name + "'>");
-
-        boolean select=true;
+  
+       boolean select=true;
         if (select)
         {
-        	sb.append("<option style='width: 203px;  height: 30px;' selected value=''>--------------Select-----------------`</option>");
+        sb.append("<option style='width: 213px;  height: 30px;' selected value=''>--------------Select-----------------</option>");
         }
 
         

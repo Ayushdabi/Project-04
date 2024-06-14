@@ -60,6 +60,11 @@ public class MarksheetBean extends BaseBean{
 		// TODO Auto-generated method stub
 		return rollNo;
 	}
+	@Override
+	public int compareTo(BaseBean o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }

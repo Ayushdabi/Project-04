@@ -22,6 +22,7 @@ height: 580px;
     
   	   
  <div align="center">
+ 
     <h1 align="center">Forgot your password ?</h1>
                  <lable>Submit your Email address and we'll send your password.</lable><br><br>
 	        

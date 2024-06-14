@@ -39,8 +39,8 @@
 
 			<%
 				List rlist = (List) request.getAttribute("RoleList");
-
-				List ulist = (List) request.getAttribute("LoginId");
+				List fList = (List) request.getAttribute("FirstName");
+				List ulist = (List) request.getAttribute("dob");
 
 				int next = DataUtility.getInt(request.getAttribute("nextlist").toString());
 			%>
@@ -66,12 +66,19 @@
 						<label></font> </label> <%-- <%=HTMLUtility.getList("roleid", String.valueOf(bean.getRoleId()), rlist) %> --%>
 
 						<label>LoginId</font> :
-					</label> <input type="text" name="loginid" placeholder="Enter Login-Id"
+					</label> <input type="text" name="loginId" placeholder="Enter Login-Id"
 						value="<%=ServletUtility.getParameter("login", request)%>">
 						&emsp; <label>Role</font> :
-					</label> <%=HTMLUtility.getList("roleid", String.valueOf(bean.getRoleId()), rlist) %>
-						&nbsp; <%-- <%=HTMLUtility.getList("loginid", String.valueOf(bean.getRoleId()), ulist)%>
- --%> &nbsp; <input type="submit" name="operation"
+
+					</label> <%=HTMLUtility.getList("roleid", String.valueOf(bean.getRoleId()), rlist)%>
+						<!-- 
+						 <label>DOB</label>
+						<input type="Date" name="dob"></input>
+						  --> </label> <%-- <%=HTMLUtility.getList("dob", String.valueOf(bean.getId()), ulist)%>  --%>
+
+ <%--   <%=HTMLUtility.getList("FirstName", String.valueOf(bean.getFirstName()), fList) %>
+
+		 --%>				<input type="submit" name="operation"
 						value="<%=UserListCtl.OP_SEARCH%>"> &nbsp; <input
 						type="submit" name="operation" value="<%=UserListCtl.OP_RESET%>">
 
@@ -163,6 +170,7 @@
 					<td align="right"><input type="submit" name="operation"
 						value="<%=UserListCtl.OP_NEXT%>"
 						<%=(list.size() < pageSize || next == 0) ? "disabled" : ""%>></td>
+
 
 
 

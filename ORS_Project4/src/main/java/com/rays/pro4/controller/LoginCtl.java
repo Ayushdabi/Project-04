@@ -1,3 +1,4 @@
+
 package com.rays.pro4.controller;
 
 import java.io.IOException;
@@ -39,6 +40,7 @@ public class LoginCtl extends BaseCtl {
 	@Override
 	protected boolean validate(HttpServletRequest request) {
 		System.out.println("loginctl  validate");
+
 		log.debug("LoginCtl Method validate Started");
 
 		boolean pass = true;
@@ -49,7 +51,7 @@ public class LoginCtl extends BaseCtl {
 		}
 
 		String login = request.getParameter("login");
- 
+
 		if (DataValidator.isNull(login)) {
 			System.out.println("loginctl 11");
 			request.setAttribute("login", PropertyReader.getValue("error.require", "Login Id"));
@@ -125,10 +127,11 @@ public class LoginCtl extends BaseCtl {
 
 		UserModel model = new UserModel();
 		RoleModel role = new RoleModel();
+		if (OP_SIGN_IN
 
-		// long id = DataUtility.getLong(request.getParameter("id"));
+				// long id = DataUtility.getLong(request.getParameter("id"));
 
-		if (OP_SIGN_IN.equalsIgnoreCase(op)) {
+				.equalsIgnoreCase(op)) {
 			System.out.println(" L ctl Do post 2222222");
 			UserBean bean = (UserBean) populateBean(request);
 
@@ -142,6 +145,7 @@ public class LoginCtl extends BaseCtl {
 				if (bean != null) {
 					session.setAttribute("user", bean);
 					long rollId = bean.getRoleId();
+					
 
 					RoleBean rolebean = role.findByPK(rollId);
 
@@ -161,6 +165,7 @@ public class LoginCtl extends BaseCtl {
 					System.out.println(" Lctl Dp post 33");
 					bean = (UserBean) populateBean(request);
 					ServletUtility.setBean(bean, request);
+					
 					ServletUtility.setErrorMessage("Invalid LoginId And Password", request);
 				}
 

@@ -1,6 +1,7 @@
 package com.rays.pro4.controller;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -71,7 +72,7 @@ public class UserCtl extends BaseCtl {
 			request.setAttribute("firstName", PropertyReader.getValue("error.require", "First Name"));
 			pass = false;
 		} else if (!DataValidator.isName(request.getParameter("firstName"))) {
-			request.setAttribute("firstName","First name must contains alphabet only");
+			request.setAttribute("firstName", "First name must contains alphabet only");
 			pass = false;
 		}
 
@@ -206,6 +207,7 @@ public class UserCtl extends BaseCtl {
 		String op = DataUtility.getString(request.getParameter("operation"));
 		// get model
 		UserModel model = new UserModel();
+
 		long id = DataUtility.getLong(request.getParameter("id"));
 		if (id > 0 || op != null) {
 			System.out.println("in id > 0  condition");
@@ -223,7 +225,7 @@ public class UserCtl extends BaseCtl {
 		}
 		log.debug("UserCtl Method doGet Ended");
 		ServletUtility.forward(getView(), request, response);
-	
+
 	}
 
 	/*
@@ -265,7 +267,7 @@ public class UserCtl extends BaseCtl {
 					// ServletUtility.setBean(bean, request);
 
 					ServletUtility.setSuccessMessage("User is successfully Added", request);
-					//ServletUtility.forward(getView(), request, response);
+					// ServletUtility.forward(getView(), request, response);
 					bean.setId(pk);
 				}
 				/*
@@ -284,7 +286,6 @@ public class UserCtl extends BaseCtl {
 			}
 		} else if (OP_DELETE.equalsIgnoreCase(op)) {
 			System.out.println(" U ctl D p 5555555");
-
 			UserBean bean = (UserBean) populateBean(request);
 			try {
 				model.delete(bean);
@@ -305,7 +306,6 @@ public class UserCtl extends BaseCtl {
 		}
 		log.debug("UserCtl Method doPostEnded");
 		ServletUtility.forward(getView(), request, response);
-
 
 	}
 

@@ -35,6 +35,7 @@
      
      <% 
 	             List clist=(List)request.getAttribute("CollegeList");
+    // List plist=(List)request.getAttribute("city");
      
      int next=DataUtility.getInt(request.getAttribute("nextlist").toString());
 
@@ -58,7 +59,7 @@
                 
                  	<%-- <input type="text" name="name" placeholder="Enter College Name" Size= "25" value="<%=ServletUtility.getParameter("name", request)%>">
 				 --%>
-				 <%=HTMLUtility.getList("collegeid", String.valueOf(bean.getId()), clist) %>
+				  <%=HTMLUtility.getList("collegeid", String.valueOf(bean.getId()), clist) %> 
                     
 				 	&nbsp;
                  	<label>City :</label> 
@@ -71,6 +72,7 @@
                  	<label>phoneno :</label> 
     	             <input type="text" name="phoneno" placeholder="Enter phoneno" Size= "25" value="<%=ServletUtility.getParameter("phoneno", request)%>">
                      --%>
+                    
                     
                     
         	         <input type="submit" name="operation" value="<%=CollegeListCtl.OP_SEARCH%>">

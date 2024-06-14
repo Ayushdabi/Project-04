@@ -55,5 +55,10 @@ public class CollegeBean extends BaseBean{
 		// TODO Auto-generated method stub
 		return name;
 	}
+	@Override
+	public int compareTo(BaseBean o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

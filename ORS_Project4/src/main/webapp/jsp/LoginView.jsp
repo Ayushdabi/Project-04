@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="com.rays.pro4.controller.LoginCtl"%>
@@ -11,8 +12,9 @@
 <title>Login Page</title>
 </head>
 <body>
+
 	<form action="<%=ORSView.LOGIN_CTL%>" method="post">
-		<%@ include file="Header.jsp"%>
+		<%@ include file="Header.jsp"%> 
 
 		<jsp:useBean id="bean" class="com.rays.pro4.Bean.UserBean"
 			scope="request"></jsp:useBean>
@@ -26,7 +28,7 @@
 
 			<H2>
 				<font color="red"> <%=ServletUtility.getErrorMessage(request)%>
-				</font>, 
+				</font>
 			</H2>
 			<h2>
 				<font color="green"> <%=ServletUtility.getSuccessMessage(request)%></font>
@@ -64,7 +66,7 @@
 						&nbsp;</td>
 				</tr>
 				<tr>
-					<th></th>
+					<th></th> 
 					<td><a href="<%=ORSView.FORGET_PASSWORD_CTL%>"><b>Forget
 								my password</b></a>&nbsp;</td>
 				</tr>
