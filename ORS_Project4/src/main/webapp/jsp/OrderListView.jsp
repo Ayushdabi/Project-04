@@ -61,22 +61,22 @@
 			%>
 			<table width="100%" align="center">
 
-				<td align="center"><label>Order Name</font> :
+				<td align="center"><label>ProductName</font> :
 
-				</label> <input type="text" name="Order_Name" placeholder="Enter Order Name"
-					value="<%=ServletUtility.getParameter("Order_Name", request)%>">
+				</label> <input type="text" name="ProductName" placeholder="Enter ProductName"
+					value="<%=ServletUtility.getParameter("ProductName", request)%>">
 				<td align="center"><label>Date</font> :
 					</label> <input type="text" name="Dob" id="Udate"
 						placeholder="Enter Date of birth"
 						value="<%=ServletUtility.getParameter("Dob", request)%>">
 						
-				<td align="center"><label>Order Status</font> :
-				</label> <input type="text" name="Order_Status"
-					placeholder="Enter Order_Status"
-					value="<%=ServletUtility.getParameter("Order_Status", request)%>">
+				<td align="center"><label>Quantity</font> :
+				</label> <input type="number" name="Quantity"
+					placeholder="Enter Quantity"
+					value="<%=ServletUtility.getParameter("Quantity", request)%>">
 
-					<label>Order_Price</font> :
-				</label> <%=HTMLUtility.getList("Order_Price", String.valueOf(bean.getOrder_Price()), dlist)%>
+					<label>Customer</font> :
+				</label> <%=HTMLUtility.getList("Customer", String.valueOf(bean.getCustomer()), dlist)%>
 
 					<input type="submit" name="operation"
 					value="<%=OrderListCtl.OP_RESET%>"> <input type="submit"
@@ -109,10 +109,10 @@
 						value="<%=bean.getId()%>"></td>
 
 					<td><%=index++%></td>
-					<td><%=bean.getOrder_Name()%></td>
-					<td><%=bean.getOrder_Status()%></td>
-					<td><%=bean.getOrder_Price()%></td>
+					<td><%=bean.getProductName()%></td>
 					<td><%=bean.getDob()%></td>
+					<td><%=bean.getQuantity()%></td>
+					<td><%=bean.getCustomer()%></td>
 					<td><a href="OrderCtl?id=<%=bean.getId()%>">Edit</td>
 				</tr>
 				<%

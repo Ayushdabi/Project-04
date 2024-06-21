@@ -57,10 +57,10 @@ public class OrderModel {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, pk);
-			pstmt.setString(2, bean.getOrder_Name());
-			pstmt.setString(3, bean.getOrder_Status());
-			pstmt.setString(4, bean.getOrder_Price());
-			pstmt.setDate(5, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setString(2, bean.getProductName());
+			pstmt.setDate(3, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setString(4, bean.getQuantity());
+			pstmt.setString(5, bean.getCustomer());
 
 			int a = pstmt.executeUpdate();
 			System.out.println("ho gyua re" + a);
@@ -117,17 +117,17 @@ public class OrderModel {
 
 	public void update(OrderBean bean) throws ApplicationException, DuplicateRecordException {
 
-		String sql = "UPDATE St_Order SET Order_Name=?,Order_Status=?,Order_Price=?,DOB=? WHERE ID=?";
+		String sql = "UPDATE St_Order SET ProductName=?,Dob=?,Quantity=?,Customer=? WHERE ID=?";
 		Connection conn = null;
 
 		try {
 			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, bean.getOrder_Name());
-			pstmt.setString(2, bean.getOrder_Status());
-			pstmt.setString(3, bean.getOrder_Price());
-			pstmt.setDate(4, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setString(1, bean.getProductName());
+			pstmt.setDate(2, new java.sql.Date(bean.getDob().getTime()));
+			pstmt.setString(3, bean.getQuantity());
+			pstmt.setString(4, bean.getCustomer());
 			pstmt.setLong(5, bean.getId());
 
 			pstmt.executeUpdate();
@@ -161,25 +161,21 @@ public class OrderModel {
 
 				sql.append(" AND id = " + bean.getId());
 
-
 			}
-			if (bean.getOrder_Name() != null && bean.getOrder_Name().length() > 0) {
-				sql.append(" AND Order_Name like '" + bean.getOrder_Name() + "%'");
+			if (bean.getProductName() != null && bean.getProductName().length() > 0) {
+				sql.append(" AND ProductName like '" + bean.getProductName() + "%'");
 			}
-
-			if (bean.getOrder_Status() != null && bean.getOrder_Status().length() > 0) {
-				sql.append(" AND Order_Status like '" + bean.getOrder_Status() + "%'");
-			}
-
-			if (bean.getOrder_Price() != null && bean.getOrder_Price().length() > 0) {
-				sql.append(" AND Order_Price like '" + bean.getOrder_Price() + "%'");
-			}
-
 			if (bean.getDob() != null && bean.getDob().getTime() > 0) {
 				Date d = new Date(bean.getDob().getDate());
 				sql.append(" AND DOB like '" + new java.sql.Date(bean.getDob().getTime()) + "%'");
 			}
-			
+			if (bean.getQuantity() != null && bean.getQuantity().length() > 0) {
+				sql.append(" AND Quantity like '" + bean.getQuantity() + "%'");
+			}
+
+			if (bean.getCustomer() != null && bean.getCustomer().length() > 0) {
+				sql.append(" AND Customer like '" + bean.getCustomer() + "%'");
+			}
 
 			if (pageSize > 0) {
 
@@ -199,10 +195,10 @@ public class OrderModel {
 			while (rs.next()) {
 				bean = new OrderBean();
 				bean.setId(rs.getLong(1));
-				bean.setOrder_Name(rs.getString(2));
-				bean.setOrder_Status(rs.getString(3));
-				bean.setOrder_Price(rs.getString(4));
-				bean.setDob(rs.getDate(5));
+				bean.setProductName(rs.getString(2));
+				bean.setDob(rs.getDate(3));
+				bean.setQuantity(rs.getString(4));
+				bean.setCustomer(rs.getString(5));
 
 				list.add(bean);
 
@@ -232,10 +228,10 @@ public class OrderModel {
 			while (rs.next()) {
 				bean = new OrderBean();
 				bean.setId(rs.getLong(1));
-				bean.setOrder_Name(rs.getString(2));
-				bean.setOrder_Status(rs.getString(3));
-				bean.setOrder_Price(rs.getString(4));
-				bean.setDob(rs.getDate(5));
+				bean.setProductName(rs.getString(2));
+				bean.setDob(rs.getDate(3));
+				bean.setQuantity(rs.getString(4));
+				bean.setCustomer(rs.getString(5));
 
 			}
 			rs.close();
@@ -273,11 +269,11 @@ public class OrderModel {
 			while (rs.next()) {
 				OrderBean bean = new OrderBean();
 				bean.setId(rs.getLong(1));
-				bean.setOrder_Name(rs.getString(2));
-				bean.setOrder_Status(rs.getString(3));
-				bean.setOrder_Price(rs.getString(4));
-				bean.setDob(rs.getDate(5));
-				
+				bean.setId(rs.getLong(1));
+				bean.setProductName(rs.getString(2));
+				bean.setDob(rs.getDate(3));
+				bean.setQuantity(rs.getString(4));
+				bean.setCustomer(rs.getString(5));
 
 				list.add(bean);
 

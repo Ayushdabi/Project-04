@@ -11,7 +11,8 @@
 </head>
 <body>
 	<form action="<%=ORSView.WELCOME_CTL%>">
-	<%@ include file="Header.jsp"%>
+		<%@ include file="Header.jsp"%>
+		<br>
 		<h1 align="Center">
 			<font size="10px" color="red">Welcome to ORS </font>
 		</h1>
@@ -24,7 +25,7 @@
 
 		<h2 align="Center">
 			<a href="<%=ORSView.GET_MARKSHEET_CTL%>">Click here to see your
-				Marksheet</a>
+				Marksheet </a>
 		</h2>
 
 		<%
@@ -34,6 +35,6 @@
 
 	</form>
 
-	<%@ include file="Footer.jsp"%> 
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

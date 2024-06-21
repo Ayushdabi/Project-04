@@ -27,19 +27,11 @@ public class OrderCtl extends BaseCtl {
 
 		boolean pass = true;
 
-		if (DataValidator.isNull(request.getParameter("Order_Name"))) {
-			request.setAttribute("Order_Name", PropertyReader.getValue("error.require", "Order Name"));
+		if (DataValidator.isNull(request.getParameter("ProductName"))) {
+			request.setAttribute("ProductName", PropertyReader.getValue("error.require", "ProductName"));
 			pass = false;
-		} else if (!DataValidator.isName(request.getParameter("Order_Name"))) {
-			request.setAttribute("Order_Name", "Order Name must contains alphabet only");
-			pass = false;
-		}
-		if (DataValidator.isNull(request.getParameter("Order_Status"))) {
-			request.setAttribute("Order_Status", PropertyReader.getValue("error.require", "Order Status"));
-			pass = false;
-		}
-		if (DataValidator.isNull(request.getParameter("Order_Price"))) {
-			request.setAttribute("Order_Price", PropertyReader.getValue("error.require", "Order Price"));
+		} else if (!DataValidator.isName(request.getParameter("ProductName"))) {
+			request.setAttribute("ProductName", "ProductName Name must contains alphabet only");
 			pass = false;
 		}
 		if (DataValidator.isNull(request.getParameter("Dob"))) {
@@ -49,7 +41,21 @@ public class OrderCtl extends BaseCtl {
 			request.setAttribute("Dob", PropertyReader.getValue("error.date", "Date Of Birth"));
 			pass = false;
 		}
-
+		if (DataValidator.isNull(request.getParameter("Quantity"))) {
+			request.setAttribute("Quantity", PropertyReader.getValue("error.require", "Quantity"));
+			pass = false;
+		}
+		if (!DataValidator.isInteger(request.getParameter("Quantity"))) {
+			request.setAttribute("Quantity", "Quantity contain intger value only");
+			pass = false;
+		}
+		if (DataValidator.isNull(request.getParameter("Customer"))) {
+			request.setAttribute("Customer", PropertyReader.getValue("error.require", "Customer"));
+			pass = false;
+		} else if (!DataValidator.isName(request.getParameter("Customer"))) {
+			request.setAttribute("Customer", "Customer  must contains alphabet only");
+			pass = false;
+		}
 		return pass;
 
 	}
@@ -59,15 +65,10 @@ public class OrderCtl extends BaseCtl {
 		OrderBean bean = new OrderBean();
 
 		bean.setId(DataUtility.getLong(request.getParameter("id")));
-
-		bean.setOrder_Name(DataUtility.getString(request.getParameter("Order_Name")));
- System.out.println(">>>>>>>>>>>>>>>>"+bean.getOrder_Name());
-		bean.setOrder_Status(DataUtility.getString(request.getParameter("Order_Status")));
-
-		bean.setOrder_Price(DataUtility.getString(request.getParameter("Order_Price")));
-		System.out.println(">>>>>>>>>>>>>>>>!!!!!!!!!"+request.getParameter("Dob"));
+		bean.setProductName(DataUtility.getString(request.getParameter("ProductName")));
 		bean.setDob(DataUtility.getDate(request.getParameter("Dob")));
-		System.out.println("dob>>> " + bean.getDob());
+		bean.setQuantity(DataUtility.getString(request.getParameter("Quantity")));
+		bean.setCustomer(DataUtility.getString(request.getParameter("Customer")));
 
 		return bean;
 	}
@@ -114,55 +115,55 @@ public class OrderCtl extends BaseCtl {
 
 		if (OP_SAVE.equalsIgnoreCase(op) || OP_UPDATE.equalsIgnoreCase(op)) {
 
- OrderBean bean = (OrderBean)  populateBean(request);
-			 
-			 try {
-				 if (id > 0) {
-			 
+			OrderBean bean = (OrderBean) populateBean(request);
+
+			try {
+				if (id > 0) {
+
 					model.update(bean);
 					ServletUtility.setBean(bean, request);
 
 					ServletUtility.setSuccessMessage("Order  is successfully Updated", request);
-				 } else {
-						System.out.println(" U ctl DoPost 33333");
-						long pk = model.add(bean);
-						//ServletUtility.setBean(bean, request);
-
-						ServletUtility.setSuccessMessage("Order is successfully Added", request);
-
-						bean.setId(pk);
-					}
-				
-			 } catch (ApplicationException e) {
-					ServletUtility.handleException(e, request, response);
-					return;
-				} catch (DuplicateRecordException e) {
-
+				} else {
+					System.out.println(" U ctl DoPost 33333");
+					long pk = model.add(bean);
+					// ServletUtility.setBean(bean, request);
 					ServletUtility.setBean(bean, request);
-					ServletUtility.setErrorMessage("Login id already exists", request);
+
+					ServletUtility.setSuccessMessage("Order is successfully Added", request);
+
+					bean.setId(pk);
 				}
-			} else if (OP_DELETE.equalsIgnoreCase(op)) {
 
-				OrderBean bean = (OrderBean) populateBean(request);
-				try {
-					model.delete(bean);
+			} catch (ApplicationException e) {
+				ServletUtility.handleException(e, request, response);
+				return;
+			} catch (DuplicateRecordException e) {
 
-					ServletUtility.redirect(ORSView.ORDER_CTL, request, response);
-					return;
-				} catch (ApplicationException e) {
-					ServletUtility.handleException(e, request, response);
-					return;
-				} }else if (OP_CANCEL.equalsIgnoreCase(op)) {
-					System.out.println(" U  ctl Do post 77777");
-
-					ServletUtility.redirect(ORSView.ORDER_LIST_CTL, request, response);
-					return;
-				}
-			ServletUtility.forward(getView(), request, response);
+				ServletUtility.setBean(bean, request);
+				ServletUtility.setErrorMessage("Login id already exists", request);
 			}
-			
+		} else if (OP_DELETE.equalsIgnoreCase(op)) {
 
-		
+			OrderBean bean = (OrderBean) populateBean(request);
+			try {
+				model.delete(bean);
+
+				ServletUtility.redirect(ORSView.ORDER_CTL, request, response);
+				return;
+			} catch (ApplicationException e) {
+				ServletUtility.handleException(e, request, response);
+				return;
+			}
+		} else if (OP_CANCEL.equalsIgnoreCase(op)) {
+			System.out.println(" U  ctl Do post 77777");
+
+			ServletUtility.redirect(ORSView.ORDER_LIST_CTL, request, response);
+			return;
+		}
+		ServletUtility.forward(getView(), request, response);
+	}
+
 	@Override
 	protected String getView() {
 		// TODO Auto-generated method stub

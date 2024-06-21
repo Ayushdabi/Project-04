@@ -37,6 +37,9 @@ public interface ORSView {
 	public String FOLLOWUP_VIEW = PAGE_FOLDER + "/FollowUpView.jsp";
 	public String CONTACT_VIEW = PAGE_FOLDER + "/ContactView.jsp";
 	public String USERS_VIEW = PAGE_FOLDER + "/UsersView.jsp";
+	public String TRANSPORTATION_VIEW = PAGE_FOLDER + "/TransportationView.jsp";
+	public String INVENTORY_VIEW = PAGE_FOLDER + "/InventoryView.jsp";
+	public String SUPPLIER_VIEW = PAGE_FOLDER + "/SupplierView.jsp";
 
 	public String USER_LIST_VIEW = PAGE_FOLDER + "/UserListView.jsp";
 	public String PAYMENT_LIST_VIEW = PAGE_FOLDER + "/PaymentListView.jsp";
@@ -58,6 +61,9 @@ public interface ORSView {
 	public String FOLLOWUP_LIST_VIEW = PAGE_FOLDER + "/FollowUpListView.jsp";
 	public String CONTACT_LIST_VIEW = PAGE_FOLDER + "/ContactListView.jsp";
 	public String USERS_LIST_VIEW = PAGE_FOLDER + "/UsersListView.jsp";
+	public String TRANSPORTATION_LIST_VIEW = PAGE_FOLDER + "/TransportationListView.jsp";
+	public String INVENTORY_LIST_VIEW = PAGE_FOLDER + "/InventoryListView.jsp";
+	public String SUPPLIER_LIST_VIEW = PAGE_FOLDER + "/SupplierListView.jsp";
 
 	public String COLLEGE_VIEW = PAGE_FOLDER + "/CollegeView.jsp";
 	public String COLLEGE_LIST_VIEW = PAGE_FOLDER + "/CollegeListView.jsp";
@@ -67,7 +73,7 @@ public interface ORSView {
 	public String ROLE_LIST_VIEW = PAGE_FOLDER + "/RoleListView.jsp";
 	public String USER_REGISTRATION_VIEW = PAGE_FOLDER + "/UserRegistrationView.jsp";
 	public String LOGIN_VIEW = PAGE_FOLDER + "/LoginView.jsp";
-	public static String WELCOME_VIEW = PAGE_FOLDER + "/Welcome.jsp";
+	public String WELCOME_VIEW = PAGE_FOLDER + "/Welcome.jsp";
 	public String CHANGE_PASSWORD_VIEW = PAGE_FOLDER + "/ChangePasswordView.jsp";
 	public String MY_PROFILE_VIEW = PAGE_FOLDER + "/MyProfileView.jsp";
 	public String FORGET_PASSWORD_VIEW = PAGE_FOLDER + "/ForgetPasswordView.jsp";
@@ -105,6 +111,9 @@ public interface ORSView {
 	public String PRISCRIPTION_CTL = APP_CONTEXT + "/ctl/PriscriptionCtl";
 	public String CONTACT_CTL = APP_CONTEXT + "/ctl/ContactCtl";
 	public String USERS_CTL = APP_CONTEXT + "/ctl/UsersCtl";
+	public String TRANSPORTATION_CTL = APP_CONTEXT + "/ctl/TransportationCtl";
+	public String INVENTORY_CTL = APP_CONTEXT + "/ctl/InventoryCtl";
+	public String SUPPLIER_CTL = APP_CONTEXT + "/ctl/SupplierCtl";
 
 	public String USER_LIST_CTL = APP_CONTEXT + "/ctl/UserListCtl";
 	public String PAYMENT_LIST_CTL = APP_CONTEXT + "/ctl/PaymentListCtl";
@@ -126,6 +135,9 @@ public interface ORSView {
 	public String FOLLOWUP_LIST_CTL = APP_CONTEXT + "/ctl/FollowUpListCtl";
 	public String CONTACT_LIST_CTL = APP_CONTEXT + "/ctl/ContactListCtl";
 	public String USERS_LIST_CTL = APP_CONTEXT + "/ctl/UsersListCtl";
+	public String TRANSPORTATION_LIST_CTL = APP_CONTEXT + "/ctl/TransportationListCtl";
+	public String INVENTORY_LIST_CTL = APP_CONTEXT + "/ctl/InventoryListCtl";
+	public String SUPPLIER_LIST_CTL = APP_CONTEXT + "/ctl/SupplierListCtl";
 
 	public String COLLEGE_CTL = APP_CONTEXT + "/ctl/CollegeCtl";
 	public String COLLEGE_LIST_CTL = APP_CONTEXT + "/ctl/CollegeListCtl";

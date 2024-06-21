@@ -98,32 +98,39 @@
 					href="<%=ORSView.CLIENT_CTL%>">Client Add</a> |<a
 					href="<%=ORSView.CLIENT_LIST_CTL%>">Client List</b></a>| --%> <%-- <a
 					href="<%=ORSView.SALARY_CTL%>">Salary Add</a> | <a
-					href="<%=ORSView.SALARY_LIST_CTL%>">Salary List</b></a>|  --%><%-- <a
+					href="<%=ORSView.SALARY_LIST_CTL%>">Salary List</b></a>|  --%> <%-- <a
 					href="<%=ORSView.DOCTAR_CTL%>">Doctar Add</a> | <a
-					href="<%=ORSView.DOCTAR_LIST_CTL%>">Doctar List</b></a>|  --%><%-- <a
+					href="<%=ORSView.DOCTAR_LIST_CTL%>">Doctar List</b></a>|  --%> <%-- <a
 					href="<%=ORSView.PATIENT_CTL%>">Patient add</a> | <a
 					href="<%=ORSView.PATIENT_LIST_CTL%>">Patient List</b></a>| --%> <%-- |<a
 					href="<%=ORSView.LEAD_CTL%>">Lead add</a> |<a
 					href="<%=ORSView.LEAD_LIST_CTL%>">Lead List</b></a> | --%> <%-- <a
 					href="<%=ORSView.BANK_CTL%>">Bank add</a> |<a
-					href="<%=ORSView.BANK_LIST_CTL%>">Bank List</b></a>|  --%><%-- <a
+					href="<%=ORSView.BANK_LIST_CTL%>">Bank List</b></a>|  --%> <a
 					href="<%=ORSView.ORDER_CTL%>">Order add</a> |<a
-					href="<%=ORSView.ORDER_LIST_CTL%>">Order List</b></a>| --%> <%-- <a
+					href="<%=ORSView.ORDER_LIST_CTL%>">Order List</b></a>| <%-- <a
 					href="<%=ORSView.DOCTAR_CTL%>">Doctor Add</a> | <a
 					href="<%=ORSView.DOCTAR_LIST_CTL%>">Doctor List</b></a>| --%> <%-- <a
 					href="<%=ORSView.PROJECT_CTL%>">Project Add</a> | <a
-					href="<%=ORSView.PROJECT_LIST_CTL%>">Project List</b></a>| --%><%--  <a
+					href="<%=ORSView.PROJECT_LIST_CTL%>">Project List</b></a>| --%> <%--  <a
 					href="<%=ORSView.WISH_CTL%>">Wish Add</a> | <a
 					href="<%=ORSView.WISH_LIST_CTL%>">Wish List</b></a>| --%> <%-- <a
 					href="<%=ORSView.PRISCRIPTION_CTL%>"> Priscription Add</a> | <a
-					href="<%=ORSView.PRISCRIPTION_LIST_CTL%>"> Priscription List</b></a>| --%><%--  <a
+					href="<%=ORSView.PRISCRIPTION_LIST_CTL%>"> Priscription List</b></a>| --%>
+					<%--  <a
 					href="<%=ORSView.FOLLOWUP_CTL%>"> FollowUp Add</a> | <a
-					href="<%=ORSView.FOLLOWUP_LIST_CTL%>"> FollowUp List</b></a>| --%> <%-- <a
+					href="<%=ORSView.FOLLOWUP_LIST_CTL%>"> FollowUp List</b></a>| --%>
+					<%-- <a
 					href="<%=ORSView.CONTACT_CTL%>"> Contact Add</a> | <a
-					href="<%=ORSView.CONTACT_LIST_CTL%>"> Contact List</b></a>| --%>
-					  | <a
+					href="<%=ORSView.CONTACT_LIST_CTL%>"> Contact List</b></a>| --%> |<%--  <a
 					href="<%=ORSView.USERS_CTL%>">Add Users</b></a> | <a
-					href="<%=ORSView.USERS_LIST_CTL%>">Users List</b></a>  <a
+					href="<%=ORSView.USERS_LIST_CTL%>">Users List</b></a>   --%> <%-- <a
+					href="<%=ORSView.TRANSPORTATION_CTL%>">Add Transportation</b></a> | <a
+					href="<%=ORSView.TRANSPORTATION_LIST_CTL%>">List Transportation</b></a> 
+					<a --%> <%-- <a href="<%=ORSView.INVENTORY_CTL%>">Add Inventory</b></a> | <a
+					href="<%=ORSView.INVENTORY_LIST_CTL%>">List Inventory</b></a> --%> 
+					<a href="<%=ORSView.SUPPLIER_CTL%>">Add Supplier</b></a> | <a
+					href="<%=ORSView.SUPPLIER_LIST_CTL%>">List Supplier</b></a><a
 					target="blank" href="<%=ORSView.JAVA_DOC_VIEW%>">Java Doc</b></a> | <%
  	}
  %> <%
