@@ -44,13 +44,13 @@ public class SupplierBean extends BaseBean {
 	@Override
 	public String getkey() {
 		// TODO Auto-generated method stub
-		return null;
+		return Category;
 	};
 
 	@Override
 	public String getValue() {
 		// TODO Auto-generated method stub
-		return null;
+		return Category;
 	}
 
 	@Override

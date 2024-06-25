@@ -106,9 +106,9 @@
 					href="<%=ORSView.LEAD_CTL%>">Lead add</a> |<a
 					href="<%=ORSView.LEAD_LIST_CTL%>">Lead List</b></a> | --%> <%-- <a
 					href="<%=ORSView.BANK_CTL%>">Bank add</a> |<a
-					href="<%=ORSView.BANK_LIST_CTL%>">Bank List</b></a>|  --%> <a
+					href="<%=ORSView.BANK_LIST_CTL%>">Bank List</b></a>|  --%><%--  <a
 					href="<%=ORSView.ORDER_CTL%>">Order add</a> |<a
-					href="<%=ORSView.ORDER_LIST_CTL%>">Order List</b></a>| <%-- <a
+					href="<%=ORSView.ORDER_LIST_CTL%>">Order List</b></a> --%><%-- <a
 					href="<%=ORSView.DOCTAR_CTL%>">Doctor Add</a> | <a
 					href="<%=ORSView.DOCTAR_LIST_CTL%>">Doctor List</b></a>| --%> <%-- <a
 					href="<%=ORSView.PROJECT_CTL%>">Project Add</a> | <a
@@ -129,8 +129,11 @@
 					href="<%=ORSView.TRANSPORTATION_LIST_CTL%>">List Transportation</b></a> 
 					<a --%> <%-- <a href="<%=ORSView.INVENTORY_CTL%>">Add Inventory</b></a> | <a
 					href="<%=ORSView.INVENTORY_LIST_CTL%>">List Inventory</b></a> --%> 
-					<a href="<%=ORSView.SUPPLIER_CTL%>">Add Supplier</b></a> | <a
-					href="<%=ORSView.SUPPLIER_LIST_CTL%>">List Supplier</b></a><a
+					<%-- <a href="<%=ORSView.SUPPLIER_CTL%>">Add Supplier</b></a> | <a
+					href="<%=ORSView.SUPPLIER_LIST_CTL%>">List Supplier</b></a> --%>
+					 <a
+					href="<%=ORSView.VEHICAL_CTL%>">Add VehicalTrack</b></a> | <a
+					href="<%=ORSView.VEHICAL_LIST_CTL%>">VehicalTrack List</b></a> | <a
 					target="blank" href="<%=ORSView.JAVA_DOC_VIEW%>">Java Doc</b></a> | <%
  	}
  %> <%

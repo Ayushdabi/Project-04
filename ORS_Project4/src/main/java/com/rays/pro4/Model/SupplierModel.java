@@ -147,8 +147,7 @@ public class SupplierModel {
 			}
 
 			if (bean.getPaymentTerm() != null && bean.getPaymentTerm() > 0) {
-				  
-				sql.append(" AND PaymentTerm = '" + bean.getPaymentTerm());
+				sql.append(" AND PaymentTerm = " + bean.getPaymentTerm());
 			}
 			
 			if (bean.getId() > 0) {

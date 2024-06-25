@@ -67,7 +67,7 @@
 					value="<%=ServletUtility.getParameter("ProductName", request)%>">
 				<td align="center"><label>Date</font> :
 					</label> <input type="text" name="Dob" id="Udate"
-						placeholder="Enter Date of birth"
+						placeholder="Enter Date of birth" readonly="readonly"
 						value="<%=ServletUtility.getParameter("Dob", request)%>">
 						
 				<td align="center"><label>Quantity</font> :
@@ -94,10 +94,10 @@
 
 
 					<th>S.No.</th>
-					<th>Order Name</th>
-					<th>Order Status</th>
-					<th>Order Price</th>
-					<th>Order Date</th>
+					<th>Product Name</th>
+					<th>Order date </th>
+					<th>Quantity</th>
+					<th>Customer</th>
 					<th>Edit</th>
 				</tr>
 				<%
