@@ -18,8 +18,7 @@ public class DataUtility {
 	 */
 	public static final String APP_DATE_FORMAT = "MM/dd/yyyy";
 
-
-	//dd/mm/yyyy
+	// dd/mm/yyyy
 
 	public static final String APP_TIME_FORMAT = "MM/dd/yyyy HH:mm:ss";
 
@@ -64,11 +63,11 @@ public class DataUtility {
 	 * @param val
 	 * @return
 	 */
-	public static int getInt(String val) {
+	public static Integer getInt(String val) {
 		if (DataValidator.isInteger(val)) {
 			return Integer.parseInt(val);
 		} else {
-			return 0;
+			return null;
 		}
 	}
 
@@ -83,6 +82,14 @@ public class DataUtility {
 			return Long.parseLong(val);
 		} else {
 			return 0;
+		}
+	}
+
+	public static Long getLong2(String val) {
+		if (DataValidator.isLong(val)) {
+			return Long.parseLong(val);
+		} else {
+			return null;
 		}
 	}
 
@@ -115,7 +122,6 @@ public class DataUtility {
 		}
 		return "";
 	}
-	
 
 	/**
 	 * Gets date after n number of days
@@ -173,17 +179,18 @@ public class DataUtility {
 			return 0;
 		}
 	}
-	public static Double getDouble(String val) {
-        if (DataValidator.isDouble(val)) {
-            return Double.parseDouble(val);
-        } else {
-            return null;
-        }
-    }
 
-    public static String getStringFromDouble(Double val) {
-        return val != null ? val.toString() : "";
-    }
+	public static Double getDouble(String val) {
+		if (DataValidator.isDouble(val)) {
+			return Double.parseDouble(val);
+		} else {
+			return null;
+		}
+	}
+
+	public static String getStringFromDouble(Double val) {
+		return val != null ? val.toString() : "";
+	}
 
 	public static void main(String[] args) {
 		System.out.println(getInt("124"));

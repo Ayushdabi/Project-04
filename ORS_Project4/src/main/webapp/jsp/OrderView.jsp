@@ -1,3 +1,4 @@
+<%@page import="com.rays.pro4.controller.ORSView"%>
 <%@page import="com.rays.pro4.Util.HTMLUtility"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="com.rays.pro4.controller.OrderListCtl"%>
@@ -82,12 +83,13 @@
 				<tr>
 					<th style="padding: 1px"></th>
 				</tr>
-<tr>
+				<tr>
 					<th align="left">Order Date <span style="color: red">*</span>
 						:
 					</th>
 					<td><input type="text" name="Dob"
-						placeholder="Enter Order Date " size="25" id="udatee" readonly="readonly"
+						placeholder="Enter Order Date " size="25" id="udatee"
+						readonly="readonly"
 						value="<%=DataUtility.getDateString(bean.getDob())%>"></td>
 					<td style="position: fixed;"><font color="red"> <%=ServletUtility.getErrorMessage("Dob", request)%></font></td>
 				</tr>
@@ -95,8 +97,7 @@
 					<th style="padding: 1px"></th>
 				</tr>
 				<tr>
-					<th align="left">Quantity<span style="color: red">*</span>
-						:
+					<th align="left">Quantity<span style="color: red">*</span> :
 					</th>
 					<td><input type="number" name="Quantity"
 						placeholder="Enter Quantity" style="width: 198px"
@@ -106,22 +107,25 @@
 				<tr>
 					<th style="padding: 1px"></th>
 				</tr>
-				
-<tr>
-					<th align="left">Customer<span style="color: red">*</span>
-						:
+
+				<tr>
+					<th align="left">Customer<span style="color: red">*</span> :
 					</th>
-					<td><input type="text" name="Customer"
-						placeholder="Enter Customer" size="25"
-						value="<%=DataUtility.getStringData(bean.getCustomer())%>"></td>
-					<td style="position: fixed"><font color="red"><%=ServletUtility.getErrorMessage("Customer", request)%></font></td>
+					<td>
+						<%
+							HashMap map = new HashMap();
+							map.put("Mr.Abhishek", "Mr.Abhishek");
+							map.put("Mr.jay", "Mr.jay");
+							map.put("Mr.Ankush", "Mr.Ankush");
 
+							String hlist = HTMLUtility.getList("Customer", String.valueOf(bean.getCustomer()), map);
+						%> <%=hlist%>
+					</td>
+					<td style="position: fixed"><font color="red"> <%=ServletUtility.getErrorMessage("Customer", request)%></font></td>
 				</tr>
-
 				<tr>
 					<th style="padding: 1px"></th>
 				</tr>
-				
 
 				<tr>
 					<th></th>

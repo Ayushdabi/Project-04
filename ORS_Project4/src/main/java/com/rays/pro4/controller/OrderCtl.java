@@ -31,24 +31,26 @@ public class OrderCtl extends BaseCtl {
 			request.setAttribute("ProductName", PropertyReader.getValue("error.require", "ProductName"));
 			pass = false;
 		} else if (!DataValidator.isName(request.getParameter("ProductName"))) {
-			request.setAttribute("ProductName", "ProductName Name must contains alphabet only");
+			request.setAttribute("ProductName", "ProductName  must contains alphabet only");
 			pass = false;
 		}
 		if (DataValidator.isNull(request.getParameter("Dob"))) {
-			request.setAttribute("Dob", PropertyReader.getValue("error.require", "Birth of Date"));
+			request.setAttribute("Dob", PropertyReader.getValue("error.require", "Order Date"));
 			pass = false;
 		} else if (!DataValidator.isDate(request.getParameter("Dob"))) {
-			request.setAttribute("Dob", PropertyReader.getValue("error.date", "Date Of Birth"));
+			request.setAttribute("Dob", PropertyReader.getValue("error.date", "Order Date"));
 			pass = false;
 		}
 		if (DataValidator.isNull(request.getParameter("Quantity"))) {
 			request.setAttribute("Quantity", PropertyReader.getValue("error.require", "Quantity"));
 			pass = false;
 		}
-		if (!DataValidator.isInteger(request.getParameter("Quantity"))) {
-			request.setAttribute("Quantity", "Quantity contain intger value only");
-			pass = false;
-		}
+
+		/*
+		 * if (!DataValidator.isInteger(request.getParameter("Quantity"))) {
+		 * request.setAttribute("Quantity", "Quantity contain intger value only"); pass
+		 * = false; }
+		 */
 		if (DataValidator.isNull(request.getParameter("Customer"))) {
 			request.setAttribute("Customer", PropertyReader.getValue("error.require", "Customer"));
 			pass = false;
@@ -67,7 +69,7 @@ public class OrderCtl extends BaseCtl {
 		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setProductName(DataUtility.getString(request.getParameter("ProductName")));
 		bean.setDob(DataUtility.getDate(request.getParameter("Dob")));
-		bean.setQuantity(DataUtility.getString(request.getParameter("Quantity")));
+		bean.setQuantity(DataUtility.getLong2(request.getParameter("Quantity")));
 		bean.setCustomer(DataUtility.getString(request.getParameter("Customer")));
 
 		return bean;

@@ -1,6 +1,7 @@
 package com.rays.pro4.Model;
 
 import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,7 +60,7 @@ public class OrderModel {
 			pstmt.setInt(1, pk);
 			pstmt.setString(2, bean.getProductName());
 			pstmt.setDate(3, new java.sql.Date(bean.getDob().getTime()));
-			pstmt.setString(4, bean.getQuantity());
+			pstmt.setLong(4, bean.getQuantity());
 			pstmt.setString(5, bean.getCustomer());
 
 			int a = pstmt.executeUpdate();
@@ -126,7 +127,7 @@ public class OrderModel {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bean.getProductName());
 			pstmt.setDate(2, new java.sql.Date(bean.getDob().getTime()));
-			pstmt.setString(3, bean.getQuantity());
+			pstmt.setLong(3, bean.getQuantity());
 			pstmt.setString(4, bean.getCustomer());
 			pstmt.setLong(5, bean.getId());
 
@@ -169,8 +170,8 @@ public class OrderModel {
 				Date d = new Date(bean.getDob().getDate());
 				sql.append(" AND DOB like '" + new java.sql.Date(bean.getDob().getTime()) + "%'");
 			}
-			if (bean.getQuantity() != null && bean.getQuantity().length() > 0) {
-				sql.append(" AND Quantity like '" + bean.getQuantity() + "%'");
+			if (bean.getQuantity() > 0) {
+				sql.append(" AND Quantity = " + bean.getQuantity());
 			}
 
 			if (bean.getCustomer() != null && bean.getCustomer().length() > 0) {
@@ -185,6 +186,7 @@ public class OrderModel {
 
 			}
 		}
+		System.out.println("sql>>>>>>>>>> " + sql.toString());
 
 		List list = new ArrayList();
 		Connection conn = null;
@@ -197,7 +199,7 @@ public class OrderModel {
 				bean.setId(rs.getLong(1));
 				bean.setProductName(rs.getString(2));
 				bean.setDob(rs.getDate(3));
-				bean.setQuantity(rs.getString(4));
+				bean.setQuantity(rs.getLong(4));
 				bean.setCustomer(rs.getString(5));
 
 				list.add(bean);
@@ -230,7 +232,7 @@ public class OrderModel {
 				bean.setId(rs.getLong(1));
 				bean.setProductName(rs.getString(2));
 				bean.setDob(rs.getDate(3));
-				bean.setQuantity(rs.getString(4));
+				bean.setQuantity(rs.getLong(4));
 				bean.setCustomer(rs.getString(5));
 
 			}
@@ -269,10 +271,9 @@ public class OrderModel {
 			while (rs.next()) {
 				OrderBean bean = new OrderBean();
 				bean.setId(rs.getLong(1));
-				bean.setId(rs.getLong(1));
 				bean.setProductName(rs.getString(2));
 				bean.setDob(rs.getDate(3));
-				bean.setQuantity(rs.getString(4));
+				bean.setQuantity(rs.getLong(4));
 				bean.setCustomer(rs.getString(5));
 
 				list.add(bean);

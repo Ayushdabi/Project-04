@@ -13,6 +13,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Order page</title>
+<script src="<%=ORSView.APP_CONTEXT%>/js/jquery.min.js"></script>
+<script src="<%=ORSView.APP_CONTEXT%>/js/Checkbox11.js"></script>
+
 </head>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -63,13 +66,13 @@
 
 				<td align="center"><label>ProductName</font> :
 
-				</label> <input type="text" name="ProductName" placeholder="Enter ProductName"
+				</label> <input type="text" name="ProductName"
+					placeholder="Enter ProductName"
 					value="<%=ServletUtility.getParameter("ProductName", request)%>">
 				<td align="center"><label>Date</font> :
-					</label> <input type="text" name="Dob" id="Udate"
-						placeholder="Enter Date of birth" readonly="readonly"
-						value="<%=ServletUtility.getParameter("Dob", request)%>">
-						
+				</label> <input type="text" name="Dob" id="Udate"
+					placeholder="Enter Date of birth" readonly="readonly"
+					value="<%=ServletUtility.getParameter("Dob", request)%>">
 				<td align="center"><label>Quantity</font> :
 				</label> <input type="number" name="Quantity"
 					placeholder="Enter Quantity"
@@ -92,10 +95,9 @@
 					<th><input type="checkbox" id="select_all" name="select">Select
 						All</th>
 
-
 					<th>S.No.</th>
 					<th>Product Name</th>
-					<th>Order date </th>
+					<th>Order date</th>
 					<th>Quantity</th>
 					<th>Customer</th>
 					<th>Edit</th>

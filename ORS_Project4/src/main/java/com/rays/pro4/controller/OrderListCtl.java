@@ -2,7 +2,6 @@ package com.rays.pro4.controller;
 
 import java.io.IOException;
 
-
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,29 +22,33 @@ import com.rays.pro4.Util.ServletUtility;
 public class OrderListCtl extends BaseCtl {
 	@Override
 	protected void preload(HttpServletRequest request) {
-		 OrderModel model = new OrderModel();
-		 
+		OrderModel model = new OrderModel();
+
 		try {
-			List dlist = model.list(0,0);
-			 request.setAttribute("prolist", dlist);
-			
+			List dlist = model.list();
+			request.setAttribute("prolist", dlist);
+
 		} catch (ApplicationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
 
 		OrderBean bean = new OrderBean();
-		
 
 		bean.setId(DataUtility.getLong(request.getParameter("id")));
 		bean.setProductName(DataUtility.getString(request.getParameter("ProductName")));
 		bean.setDob(DataUtility.getDate(request.getParameter("Dob")));
-		bean.setQuantity(DataUtility.getString(request.getParameter("Quantity")));
+
+		System.out.println("quantity ===== > " + request.getParameter("Quantity"));
+
+		bean.setQuantity(DataUtility.getLong(request.getParameter("Quantity")));
+
+		System.out.println("quantity bean ===== > " + bean.getQuantity());
+
 		bean.setCustomer(DataUtility.getString(request.getParameter("Customer")));
 
 		return bean;
@@ -62,7 +65,7 @@ public class OrderListCtl extends BaseCtl {
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
 		OrderBean bean = (OrderBean) populateBean(request);
 		String op = DataUtility.getString(request.getParameter("operation"));
-		   System.out.println(">>>>>>>>>>>>>>>helooo"+bean.getDob());
+		System.out.println(">>>>>>>>>>>>>>>helooo" + bean.getDob());
 
 		OrderModel model = new OrderModel();
 
@@ -73,8 +76,6 @@ public class OrderListCtl extends BaseCtl {
 			nextList = model.search(bean, pageNo + 1, pageSize);
 
 			request.setAttribute("nextlist", nextList.size());
-
-			
 
 			ServletUtility.setList(list, request);
 			ServletUtility.setPageNo(pageNo, request);

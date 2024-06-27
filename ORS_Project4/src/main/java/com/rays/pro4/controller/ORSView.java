@@ -41,6 +41,7 @@ public interface ORSView {
 	public String INVENTORY_VIEW = PAGE_FOLDER + "/InventoryView.jsp";
 	public String SUPPLIER_VIEW = PAGE_FOLDER + "/SupplierView.jsp";
 	public String VEHICAL_VIEW = PAGE_FOLDER + "/VehicalView.jsp";
+	public String ATM_VIEW = PAGE_FOLDER + "/AtmView.jsp";
 
 	public String USER_LIST_VIEW = PAGE_FOLDER + "/UserListView.jsp";
 	public String PAYMENT_LIST_VIEW = PAGE_FOLDER + "/PaymentListView.jsp";
@@ -66,6 +67,7 @@ public interface ORSView {
 	public String INVENTORY_LIST_VIEW = PAGE_FOLDER + "/InventoryListView.jsp";
 	public String SUPPLIER_LIST_VIEW = PAGE_FOLDER + "/SupplierListView.jsp";
 	public String VEHICAL_LIST_VIEW = PAGE_FOLDER + "/VehicalListView.jsp";
+	public String ATM_LIST_VIEW = PAGE_FOLDER + "/AtmListView.jsp";
 
 	public String COLLEGE_VIEW = PAGE_FOLDER + "/CollegeView.jsp";
 	public String COLLEGE_LIST_VIEW = PAGE_FOLDER + "/CollegeListView.jsp";
@@ -145,6 +147,8 @@ public interface ORSView {
 
 	public String COLLEGE_CTL = APP_CONTEXT + "/ctl/CollegeCtl";
 	public String COLLEGE_LIST_CTL = APP_CONTEXT + "/ctl/CollegeListCtl";
+	public String ATM_CTL = APP_CONTEXT + "/ctl/AtmCtl";
+	public String ATM_LIST_CTL = APP_CONTEXT + "/ctl/AtmListCtl";
 	public String STUDENT_CTL = APP_CONTEXT + "/ctl/StudentCtl";
 	public String STUDENT_LIST_CTL = APP_CONTEXT + "/ctl/StudentListCtl";
 	public String ROLE_CTL = APP_CONTEXT + "/ctl/RoleCtl";
